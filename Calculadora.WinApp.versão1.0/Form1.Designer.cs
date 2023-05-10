@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnF2 = new Button();
             btn0 = new Button();
             btn9 = new Button();
             btn8 = new Button();
@@ -53,6 +54,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.FromArgb(255, 192, 192);
+            groupBox1.Controls.Add(btnF2);
             groupBox1.Controls.Add(btn0);
             groupBox1.Controls.Add(btn9);
             groupBox1.Controls.Add(btn8);
@@ -72,12 +75,23 @@
             groupBox1.Controls.Add(btnC);
             groupBox1.Controls.Add(textResultado);
             groupBox1.Controls.Add(lblTitulo);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(473, 384);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Calculadora";
+            // 
+            // btnF2
+            // 
+            btnF2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnF2.Location = new Point(372, 325);
+            btnF2.Name = "btnF2";
+            btnF2.Size = new Size(75, 23);
+            btnF2.TabIndex = 19;
+            btnF2.Text = "v.1.0";
+            btnF2.UseVisualStyleBackColor = true;
+            btnF2.Click += btnF2_Click;
             // 
             // btn0
             // 
@@ -278,7 +292,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(513, 450);
+            ClientSize = new Size(478, 394);
             Controls.Add(groupBox1);
             Name = "Form1";
             Text = "Form1";
@@ -309,5 +323,6 @@
         private Button btn3;
         private Button btn2;
         private Button btn1;
+        private Button btnF2;
     }
 }

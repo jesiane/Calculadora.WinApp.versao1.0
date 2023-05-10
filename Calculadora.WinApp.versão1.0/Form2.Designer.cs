@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lbloperacao = new Label();
+            btnC = new Button();
+            btnF1 = new Button();
             lblMostrarResultado = new Label();
             lblResultado = new Label();
             txt2 = new TextBox();
@@ -45,6 +48,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.FromArgb(128, 255, 128);
+            groupBox1.Controls.Add(lbloperacao);
+            groupBox1.Controls.Add(btnC);
+            groupBox1.Controls.Add(btnF1);
             groupBox1.Controls.Add(lblMostrarResultado);
             groupBox1.Controls.Add(lblResultado);
             groupBox1.Controls.Add(txt2);
@@ -56,18 +63,51 @@
             groupBox1.Controls.Add(btndivisao);
             groupBox1.Controls.Add(btnmulti);
             groupBox1.Controls.Add(btnsoma);
-            groupBox1.Location = new Point(27, 25);
+            groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(341, 413);
             groupBox1.TabIndex = 19;
             groupBox1.TabStop = false;
             groupBox1.Text = "Calculadora";
             // 
+            // lbloperacao
+            // 
+            lbloperacao.AutoSize = true;
+            lbloperacao.BackColor = SystemColors.ActiveCaption;
+            lbloperacao.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbloperacao.Location = new Point(9, 102);
+            lbloperacao.Name = "lbloperacao";
+            lbloperacao.Size = new Size(12, 17);
+            lbloperacao.TabIndex = 45;
+            lbloperacao.Text = ".";
+            // 
+            // btnC
+            // 
+            btnC.Location = new Point(147, 100);
+            btnC.Name = "btnC";
+            btnC.Size = new Size(29, 23);
+            btnC.TabIndex = 44;
+            btnC.Text = "C";
+            btnC.UseVisualStyleBackColor = true;
+            btnC.Click += btnC_Click;
+            // 
+            // btnF1
+            // 
+            btnF1.BackColor = SystemColors.ActiveBorder;
+            btnF1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnF1.Location = new Point(231, 248);
+            btnF1.Name = "btnF1";
+            btnF1.Size = new Size(75, 23);
+            btnF1.TabIndex = 43;
+            btnF1.Text = "v.1.1";
+            btnF1.UseVisualStyleBackColor = false;
+            btnF1.Click += btnF1_Click;
+            // 
             // lblMostrarResultado
             // 
             lblMostrarResultado.AutoSize = true;
             lblMostrarResultado.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMostrarResultado.Location = new Point(229, 126);
+            lblMostrarResultado.Location = new Point(158, 167);
             lblMostrarResultado.Name = "lblMostrarResultado";
             lblMostrarResultado.Size = new Size(18, 20);
             lblMostrarResultado.TabIndex = 41;
@@ -76,7 +116,7 @@
             // lblResultado
             // 
             lblResultado.AutoSize = true;
-            lblResultado.Location = new Point(155, 130);
+            lblResultado.Location = new Point(79, 171);
             lblResultado.Name = "lblResultado";
             lblResultado.Size = new Size(65, 15);
             lblResultado.TabIndex = 40;
@@ -117,7 +157,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.BackColor = SystemColors.ActiveBorder;
+            lblTitulo.BackColor = SystemColors.ActiveCaption;
             lblTitulo.Location = new Point(90, 28);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(171, 15);
@@ -127,7 +167,7 @@
             // 
             // btnsubtracao
             // 
-            btnsubtracao.Location = new Point(183, 78);
+            btnsubtracao.Location = new Point(219, 100);
             btnsubtracao.Name = "btnsubtracao";
             btnsubtracao.Size = new Size(31, 23);
             btnsubtracao.TabIndex = 30;
@@ -137,7 +177,7 @@
             // 
             // btndivisao
             // 
-            btndivisao.Location = new Point(257, 78);
+            btndivisao.Location = new Point(293, 100);
             btndivisao.Name = "btndivisao";
             btndivisao.Size = new Size(31, 23);
             btndivisao.TabIndex = 32;
@@ -147,7 +187,7 @@
             // 
             // btnmulti
             // 
-            btnmulti.Location = new Point(220, 78);
+            btnmulti.Location = new Point(256, 100);
             btnmulti.Name = "btnmulti";
             btnmulti.Size = new Size(31, 23);
             btnmulti.TabIndex = 31;
@@ -157,7 +197,7 @@
             // 
             // btnsoma
             // 
-            btnsoma.Location = new Point(146, 78);
+            btnsoma.Location = new Point(182, 100);
             btnsoma.Name = "btnsoma";
             btnsoma.Size = new Size(31, 23);
             btnsoma.TabIndex = 29;
@@ -169,7 +209,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(415, 450);
+            ClientSize = new Size(346, 419);
             Controls.Add(groupBox1);
             Name = "Form2";
             Text = "Form2";
@@ -192,5 +232,8 @@
         private Button btnmulti;
         private Button btnsoma;
         private TextBox txt2;
+        private Button btnF1;
+        private Button btnC;
+        private Label lbloperacao;
     }
 }

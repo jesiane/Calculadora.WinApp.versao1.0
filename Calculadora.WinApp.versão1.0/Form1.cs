@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Globalization;
+
 
 namespace Calculadora.WinApp.versão1._0
 {
@@ -23,61 +15,109 @@ namespace Calculadora.WinApp.versão1._0
         private void btnC_Click(object sender, EventArgs e)
         {
             textResultado.Text = " ";
+            lblOperacao.Text = " ";
         }
 
         private void btnSoma_Click(object sender, EventArgs e)
         {
-            valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
-            textResultado.Text = "";
-            operacao = "soma";
-            lblOperacao.Text = "+";
+            if (textResultado.Text != "")
+            {
+                valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
+                textResultado.Text = "";
+                operacao = "soma";
+                lblOperacao.Text = "+";
+            }
+            else
+            {
+                MessageBox.Show(" Informe um valor para efetuar a Soma.");
+            }
         }
 
         private void btnSub_Click(object sender, EventArgs e)
         {
-            valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
-            textResultado.Text = "";
-            operacao = "sub";
-            lblOperacao.Text = "-";
+            if (textResultado.Text != "")
+            {
+                valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
+                textResultado.Text = "";
+                operacao = "sub";
+                lblOperacao.Text = "-";
+
+            }
+            else
+            {
+                MessageBox.Show(" Informe um valor para efetuar a Subtração.");
+            }
         }
 
         private void btnMulti_Click(object sender, EventArgs e)
         {
-            valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
-            textResultado.Text = "";
-            operacao = "mult";
-            lblOperacao.Text = "*";
+            if (textResultado.Text != "")
+            {
+
+                valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
+                textResultado.Text = "";
+                operacao = "mult";
+                lblOperacao.Text = "*";
+
+            }
+            else
+            {
+                MessageBox.Show(" Informe um valor para efetuar a Multiplicação.");
+            }
         }
 
         private void btnDiv_Click(object sender, EventArgs e)
         {
-            valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
-            textResultado.Text = "";
-            operacao = "div";
-            lblOperacao.Text = "/";
-        }
-
-        private void btnIgual_Click(object sender, EventArgs e)
-        {
-            valor2 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
-
-            if (operacao == "soma")
+            if (textResultado.Text != "")
             {
-                textResultado.Text = Convert.ToString(valor1 + valor2);
-            }
-            else if (operacao == "sub")
-            {
-                textResultado.Text = Convert.ToString(valor1 - valor2);
 
-            }
-            else if (operacao == "mult")
-            {
-                textResultado.Text = Convert.ToString(valor1 * valor2);
+                valor1 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
+                textResultado.Text = "";
+                operacao = "div";
+                lblOperacao.Text = "/";
+
             }
             else
             {
-                textResultado.Text = Convert.ToString(valor1 / valor2);
+                MessageBox.Show(" Informe um valor para efetuar a Divisão.");
             }
+        }
+
+
+        private void btnIgual_Click(object sender, EventArgs e)
+        {
+            if (textResultado.Text != "")
+            {
+                valor2 = decimal.Parse(textResultado.Text, CultureInfo.InvariantCulture);
+
+                if (operacao == "soma")
+                {
+                    textResultado.Text = Convert.ToString(valor1 + valor2);
+                    ForeColor = Color.Red;
+                }
+                else if (operacao == "sub")
+                {
+                    textResultado.Text = Convert.ToString(valor1 - valor2);
+                    ForeColor = Color.Blue;
+
+                }
+                else if (operacao == "mult")
+                {
+                    textResultado.Text = Convert.ToString(valor1 * valor2);
+                    ForeColor = Color.DeepPink;
+                }
+                else
+                {
+                    textResultado.Text = Convert.ToString(valor1 / valor2);
+                    ForeColor = Color.Green;
+                }
+            }
+            else
+            {
+                MessageBox.Show(" Informe o valor para concluir o calculo.");
+            }
+
+
         }
 
         private void lblOperacao_Click(object sender, EventArgs e)
@@ -138,6 +178,13 @@ namespace Calculadora.WinApp.versão1._0
         private void btn0_Click(object sender, EventArgs e)
         {
             textResultado.AppendText("0");
+        }
+
+        private void btnF2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            this.Visible = false;
+            form2.ShowDialog();
         }
     }
 }
